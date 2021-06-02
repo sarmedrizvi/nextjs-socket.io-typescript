@@ -26,7 +26,6 @@ const Index: React.FC = () => {
     const socket = SocketIOClient.connect(process.env.BASE_URL, {
       path: "/api/socketio",
     });
-
     // log socket connection
     socket.on("connect", () => {
       console.log("SOCKET CONNECTED!", socket.id);
@@ -35,8 +34,14 @@ const Index: React.FC = () => {
 
     // update chat on new message dispatched
     socket.on("message", (message: IMsg) => {
+      console.log("message");
       chat.push(message);
       setChat([...chat]);
+    });
+    socket.on("test", (test: String) => {
+      console.log("test", test);
+      //  chat.push(message);
+      //  setChat([...chat]);
     });
 
     // socket disconnet onUnmount if exists

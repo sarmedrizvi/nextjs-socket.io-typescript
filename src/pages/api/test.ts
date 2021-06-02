@@ -9,7 +9,7 @@ export default (req: NextApiRequest, res: NextApiResponseServerIO) => {
       res || {};
 
     // dispatch to channel "message"
-    io.emit("test", test);
+    io?.emit("test", test);
 
     // return message
     res.status(201).json(test);

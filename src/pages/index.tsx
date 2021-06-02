@@ -26,6 +26,7 @@ const Index: React.FC = () => {
     const socket = SocketIOClient.connect(process.env.BASE_URL, {
       path: "/api/socketio",
     });
+    console.log(process.env.BASE_URL);
     // log socket connection
     socket.on("connect", () => {
       console.log("SOCKET CONNECTED!", socket.id);
